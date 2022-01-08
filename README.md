@@ -131,9 +131,8 @@ set alert <RECEIVER_EMAIL> not on { instance, action } # Do not alert when Monit
 
 ## collector
 
-The collector is responsible for collecting the data from the monitored services and sending it to the server.
-
-add the following lines:
+The collector is responsible for receiving the data from monit, and storing it in a database. We need to specify the
+collector to use by adding the following lines:
 
 ```
 set mmonit <WEB_HOOK_URL>
@@ -182,6 +181,8 @@ add the following lines:
 include /etc/monit/conf.d/*
 include /etc/monit/conf-enabled/*
 ```
+
+> this step is required to enable monit to monitor the services since the configuration is not included in the monitrc file.
 
 --------------------------------------------------------------------------------
 
